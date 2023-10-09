@@ -7,6 +7,7 @@ import {useFormik} from 'formik'
 import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
+import axios from "axios";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -34,7 +35,21 @@ const initialValues = {
 export function Login() {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/api/account/login", {
+        username,
+        password
+      });
+
+      // Giriş başarılıysa işlem yapılacak
+    } catch (error) {
+      
+    }
+  };
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
@@ -70,29 +85,29 @@ export function Login() {
       {/* begin::Heading */}
 
       {/* begin::Login options */}
-      <div className='row g-3 mb-9'>
+      {/* <div className='row g-3 mb-9'> */}
         {/* begin::Col */}
         <div className='col-md-6'>
           {/* begin::Google link */}
-          <a
+          {/* <a
             href='#'
             className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
-          >
-            <img
+          > */}
+            {/* <img
               alt='Logo'
               src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
               className='h-15px me-3'
             />
             Sign in with Google
-          </a>
+          </a> */}
           {/* end::Google link */}
-        </div>
+        {/* </div> */}
         {/* end::Col */}
 
         {/* begin::Col */}
         <div className='col-md-6'>
           {/* begin::Google link */}
-          <a
+          {/* <a
             href='#'
             className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
           >
@@ -107,7 +122,7 @@ export function Login() {
               className='theme-dark-show h-15px me-3'
             />
             Sign in with Apple
-          </a>
+          </a> */}
           {/* end::Google link */}
         </div>
         {/* end::Col */}
@@ -115,9 +130,9 @@ export function Login() {
       {/* end::Login options */}
 
       {/* begin::Separator */}
-      <div className='separator separator-content my-14'>
+      {/* <div className='separator separator-content my-14'>
         <span className='w-125px text-gray-500 fw-semibold fs-7'>Or with email</span>
-      </div>
+      </div> */}
       {/* end::Separator */}
 
       {formik.status ? (

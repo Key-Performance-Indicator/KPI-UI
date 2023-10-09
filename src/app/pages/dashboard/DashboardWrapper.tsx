@@ -2,13 +2,13 @@ import {useEffect} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../_metronic/layout/core'
 import {
-    ListsWidget3,
-    ListsWidget4,
-    ListsWidget5,
-    ListsWidget9,
-    MixedWidget6,
-    MixedWidget7,
-    MixedWidget8,
+    // ListsWidget3,
+    // ListsWidget4,
+    // ListsWidget5,
+    // ListsWidget9,
+    // MixedWidget6,
+    // MixedWidget7,
+    // MixedWidget8,
     StatisticsWidget5,
     TablesWidget11,
     TablesWidget9,
@@ -25,12 +25,13 @@ const DashboardPage = () => {
 
   return (
     <>
+    
       <PageTitle breadcrumbs={[]} description='#XRS-45670'>
         Dashboard
       </PageTitle>
       {/* begin::Row */}
       <div className='row g-5 g-xl-8'>
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <StatisticsWidget5
             className='card-xl-stretch mb-xl-8'
             svgIcon='basket'
@@ -41,9 +42,9 @@ const DashboardPage = () => {
             description='Lands, Houses, Ranchos, Farms'
             descriptionColor='white'
           />
-        </div>
+        </div> */}
 
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <StatisticsWidget5
             className='card-xl-stretch mb-xl-8'
             svgIcon='cheque'
@@ -54,9 +55,9 @@ const DashboardPage = () => {
             descriptionColor='white'
             description='Flats, Shared Rooms, Duplex'
           />
-        </div>
+        </div> */}
 
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <StatisticsWidget5
             className='card-xl-stretch mb-5 mb-xl-8'
             svgIcon='chart-simple-3'
@@ -67,36 +68,36 @@ const DashboardPage = () => {
             title='Sales Stats'
             description='50% Increased for FY20'
           />
-        </div>
+        </div> */}
       </div>
       {/* end::Row */}
 
       {/* begin::Row */}
       <div className='row gy-5 g-xl-8'>
         {/* begin::Col */}
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <MixedWidget6
             className='card-xl-stretch mb-xl-8'
             chartColor='primary'
             chartHeight='150px'
           />
-        </div>
+        </div> */}
         {/* end::Col */}
 
         {/* begin::Col */}
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <MixedWidget7 className='card-xl-stretch' chartColor='primary' chartHeight='225px' />
-        </div>
+        </div> */}
         {/* end::Col */}
 
         {/* begin::Col */}
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <MixedWidget8
             className='card-xl-stretch mb-5 mb-xl-8'
             chartColor='danger'
             chartHeight='150px'
           />
-        </div>
+        </div> */}
         {/* end::Col */}
       </div>
       {/* end::Row */}
@@ -104,9 +105,9 @@ const DashboardPage = () => {
       {/* begin::Row */}
       <div className='row gy-5 g-xl-8'>
         {/* begin::Col */}
-        <div className='col-xxl-4'>
+        {/* <div className='col-xxl-4'>
           <ListsWidget9 className='card-xxl-stretch' />
-        </div>
+        </div> */}
         {/* end::Col */}
 
         {/* begin::Col */}
@@ -119,25 +120,28 @@ const DashboardPage = () => {
 
       {/* begin::Row */}
       <div className='row g-5 g-xl-8'>
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <ListsWidget4 className='card-xl-stretch mb-xl-8' />
-        </div>
+        </div> */}
 
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <ListsWidget5 className='card-xl-stretch mb-xl-8' />
-        </div>
+        </div> */}
 
-        <div className='col-xl-4'>
+        {/* <div className='col-xl-4'>
           <ListsWidget3 className='card-xl-stretch mb-5 mb-xl-8' />
-        </div>
+        </div> */}
       </div>
       {/* end::Row */}
 
       {/* begin::Row */}
+      <br></br>
       <div className='g-5 gx-xxl-8'>
         <TablesWidget11 className='' />
       </div>
+      <br></br>
       {/* end::Row */}
+     
     </>
   )
 }
@@ -147,6 +151,8 @@ const DashboardWrapper = () => {
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
+      <br></br>
+      <br></br>
       <DashboardPage />
     </>
   )

@@ -2,7 +2,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {KTIcon} from '../../../../_metronic/helpers'
-import {ChartsWidget1, ListsWidget5, TablesWidget1, TablesWidget5,} from '../../../../_metronic/partials/widgets'
+import {ChartsWidget1, TablesWidget1, TablesWidget5,} from '../../../../_metronic/partials/widgets'
 
 export function Overview() {
   return (
@@ -123,9 +123,9 @@ export function Overview() {
       </div>
 
       <div className='row gy-10 gx-xl-10'>
-        <div className='col-xl-6'>
+        {/* <div className='col-xl-6'>
           <ListsWidget5 className='card-xxl-stretch mb-5 mb-xl-10' />
-        </div>
+        </div> */}
 
         <div className='col-xl-6'>
           <TablesWidget5 className='card-xxl-stretch mb-5 mb-xl-10' />

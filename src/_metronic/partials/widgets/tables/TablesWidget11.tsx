@@ -10,7 +10,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
-      <div className='card-header border-0 pt-5'>
+      {/* <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
           <span className='card-label fw-bold fs-3 mb-1'>New Arrivals</span>
           <span className='text-muted mt-1 fw-semibold fs-7'>Over 500 new products</span>
@@ -21,7 +21,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
             New Member
           </a>
         </div>
-      </div>
+      </div> */}
       {/* end::Header */}
       {/* begin::Body */}
       <div className='card-body py-3'>
@@ -32,11 +32,11 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
             {/* begin::Table head */}
             <thead>
               <tr className='fw-bold text-muted bg-light'>
-                <th className='ps-4 min-w-325px rounded-start'>Product</th>
-                <th className='min-w-125px'>Price</th>
-                <th className='min-w-125px'>Deposit</th>
-                <th className='min-w-200px'>Agent</th>
-                <th className='min-w-150px'>Status</th>
+                <th className='ps-4 min-w-325px rounded-start'>Proje</th>
+                <th className='min-w-125px'>Task Sayısı</th>
+                <th className='min-w-125px'>Tamamlanan Task Sayısı</th>
+                <th className='min-w-200px'>Proje Müdürü</th>
+                <th className='min-w-150px'>Proje Durumu</th>
                 <th className='min-w-200px text-end rounded-end'></th>
               </tr>
             </thead>
@@ -55,7 +55,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
                     </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
-                        Sant Extreanet Solution
+                        ESBİS
                       </a>
                       <span className='text-muted fw-semibold text-muted d-block fs-7'>
                         HTML, JS, ReactJS
@@ -114,7 +114,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
                     </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
-                        Telegram Development
+                        TÜBİS
                       </a>
                       <span className='text-muted fw-semibold text-muted d-block fs-7'>
                         C#, ASP.NET, MS SQL
@@ -173,7 +173,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
                     </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
-                        Payroll Application
+                        REKLAM KURULU
                       </a>
                       <span className='text-muted fw-semibold text-muted d-block fs-7'>
                         PHP, Laravel, VueJS
@@ -234,7 +234,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
                     </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
-                        HR Management System
+                        E-GARANTİ
                       </a>
                       <span className='text-muted fw-semibold text-muted d-block fs-7'>
                         Python, PostgreSQL, ReactJS
@@ -293,7 +293,7 @@ const TablesWidget11: React.FC<Props> = ({className}) => {
                     </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
-                        Telegram Mobile
+                        MERSİS
                       </a>
                       <span className='text-muted fw-semibold text-muted d-block fs-7'>
                         HTML, JS, ReactJS

@@ -16,7 +16,7 @@ const AuthLayout = () => {
     <div
       className='d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed'
       style={{
-        backgroundImage: `url(${toAbsoluteUrl('/media/illustrations/sketchy-1/14.png')})`,
+        // backgroundImage: `url(${toAbsoluteUrl('/media/illustrations/sketchy-1/14.png')})`,
       }}
     >
       {/* begin::Content */}
@@ -28,11 +28,11 @@ const AuthLayout = () => {
             src={toAbsoluteUrl('/media/logos/default-dark.svg')}
             className='theme-dark-show h-45px'
           />
-          <img
+          {/* <img
             alt='Logo'
             src={toAbsoluteUrl('/media/logos/default.svg')}
             className='theme-light-show h-45px'
-          ></img>
+          ></img> */}
         </a>
         {/* end::Logo */}
         {/* begin::Wrapper */}
