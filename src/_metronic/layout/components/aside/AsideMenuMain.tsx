@@ -313,7 +313,7 @@ export function AsideMenuMain() {
       <AsideMenuItem
         to='/userPerformance'
         title='Kullanıcı Performansı'
-        fontIcon='bi-file-text'
+        fontIcon='bi-bar-chart'
         bsTitle={intl.formatMessage({id: 'Kullanıcı Performansı'})}
         className='py-2'
       />
