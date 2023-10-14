@@ -3,6 +3,7 @@ import {useIntl} from 'react-intl'
 import {AsideMenuItemWithSubMain} from './AsideMenuItemWithSubMain'
 import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
 import {AsideMenuItem} from './AsideMenuItem'
+import {AiOutlineRadarChart} from 'react-icons/ai'
 
 export function AsideMenuMain() {
   const intl = useIntl()
@@ -308,6 +309,16 @@ export function AsideMenuMain() {
           fontIcon='bi-card-text fs-3'
         />
       </AsideMenuItemWithSubMain>
+
+      <AsideMenuItem
+        to='/userPerformance'
+        title='Kullanıcı Performansı'
+        fontIcon='bi-file-text'
+        bsTitle={intl.formatMessage({id: 'Kullanıcı Performansı'})}
+        className='py-2'
+      />
+
+
     </>
   )
 }
