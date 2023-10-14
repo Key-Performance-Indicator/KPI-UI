@@ -318,6 +318,13 @@ export function AsideMenuMain() {
         className='py-2'
       />
 
+      <AsideMenuItem
+        to='/totalContribution'
+        title='Toplam Katkı'
+        fontIcon='bi-pie-chart'
+        bsTitle={intl.formatMessage({id: 'Toplam Katkı'})}
+        className='py-2'
+      />
 
     </>
   )

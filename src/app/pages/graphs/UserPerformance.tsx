@@ -65,8 +65,8 @@ const data = [
 
 const DashboardPage = () => {
 
-  const [kullaniciIlk, setKullaniciIlk] = React.useState('Selen 2');
-  const [kullaniciIki, setKullaniciIki] = React.useState('Selen 1');
+  const [kullaniciIlk, setKullaniciIlk] = React.useState('');
+  const [kullaniciIki, setKullaniciIki] = React.useState('');
 
   const [kullaniciIlkData, setKullaniciIlkData] = React.useState('A');
   const [kullaniciIkiData, setKullaniciIkiData] = React.useState('B');
@@ -100,21 +100,23 @@ const DashboardPage = () => {
       <div style={{display:'flex'}}>
       <div style={{display:'flex',flexDirection: 'column'}}>
       <p>Kullanıcı 1</p>
-        <select onChange={onChangeKullaniciIlk}>
-          <option selected>Selen 2</option>
-          <option>Selen 1</option>
-          <option>Selen 3</option>
-          <option>Selen 4</option>
-        </select>
+      <select onChange={onChangeKullaniciIlk} defaultValue="Selen 2">
+        <option>Selen 2</option>
+        <option>Selen 1</option>
+        <option>Selen 3</option>
+        <option>Selen 4</option>
+      </select>
+
       </div>
       <div style={{display:'flex',flexDirection: 'column',marginLeft:'1em'}}>
       <p>Kullanıcı 2</p>
-        <select onChange={onChangeKullaniciIki}>
-          <option selected={true}>Selen 1</option>
-          <option>Selen 2</option>
-          <option>Selen 3</option>
-          <option>Selen 4</option>
-        </select>
+      <select onChange={onChangeKullaniciIki} defaultValue="Selen 1">
+        <option>Selen 1</option>
+        <option>Selen 2</option>
+        <option>Selen 3</option>
+        <option>Selen 4</option>
+      </select>
+
       </div>
 
       
