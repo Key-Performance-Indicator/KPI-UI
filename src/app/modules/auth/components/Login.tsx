@@ -8,6 +8,8 @@ import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
 import axios from "axios";
+import { handleRegister } from '../utils/handleAuth'
+import { handleLogin } from '../utils/handleAuth'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -38,34 +40,33 @@ export function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/api/account/login", {
-        username,
-        password
-      });
-
-      // Giriş başarılıysa işlem yapılacak
-    } catch (error) {
-      
-    }
-  };
+ 
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: async (values, {setStatus, setSubmitting}) => {
-      setLoading(true)
+    onSubmit: async (values, { setStatus, setSubmitting }) => {
+      setLoading(true);
       try {
-        const {data: auth} = await login(values.email, values.password)
-        saveAuth(auth)
-        const {data: user} = await getUserByToken(auth.api_token)
-        setCurrentUser(user)
+        const response = await handleLogin(values.email, values.password);
+       
+  
+        if ('message' in response && response.message === 'success') {
+          const {data: auth} = await login('admin@demo.com', 'demo')
+          saveAuth(auth)
+          const {data: user} = await getUserByToken(auth.api_token)
+          setCurrentUser(user)
+          console.log('response', response);  
+        } else {
+          // Giriş başarısız olursa
+          // saveAuth(undefined);
+          console.log('response', response);
+          setStatus('The login details are incorrect');
+        }
       } catch (error) {
-        console.error(error)
-        saveAuth(undefined)
-        setStatus('The login details are incorrect')
-        setSubmitting(false)
-        setLoading(false)
+        console.error(error); // Hata durumunda hatayı konsola yazdır
+      } finally {
+        setSubmitting(false); // Formun tekrar gönderilebilir olmasını sağla
+        setLoading(false); // Yüklenme durumunu güncelle
       }
     },
   })
@@ -80,60 +81,12 @@ export function Login() {
       {/* begin::Heading */}
       <div className='text-center mb-11'>
         <h1 className='text-dark fw-bolder mb-3'>Sign In</h1>
-        <div className='text-gray-500 fw-semibold fs-6'>Your Social Campaigns</div>
+        
       </div>
       {/* begin::Heading */}
 
-      {/* begin::Login options */}
-      {/* <div className='row g-3 mb-9'> */}
-        {/* begin::Col */}
-        <div className='col-md-6'>
-          {/* begin::Google link */}
-          {/* <a
-            href='#'
-            className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
-          > */}
-            {/* <img
-              alt='Logo'
-              src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
-              className='h-15px me-3'
-            />
-            Sign in with Google
-          </a> */}
-          {/* end::Google link */}
-        {/* </div> */}
-        {/* end::Col */}
+      
 
-        {/* begin::Col */}
-        <div className='col-md-6'>
-          {/* begin::Google link */}
-          {/* <a
-            href='#'
-            className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
-          >
-            <img
-              alt='Logo'
-              src={toAbsoluteUrl('/media/svg/brand-logos/apple-black.svg')}
-              className='theme-light-show h-15px me-3'
-            />
-            <img
-              alt='Logo'
-              src={toAbsoluteUrl('/media/svg/brand-logos/apple-black-dark.svg')}
-              className='theme-dark-show h-15px me-3'
-            />
-            Sign in with Apple
-          </a> */}
-          {/* end::Google link */}
-        </div>
-        {/* end::Col */}
-      </div>
-      {/* end::Login options */}
-
-      {/* begin::Separator */}
-      {/* <div className='separator separator-content my-14'>
-        <span className='w-125px text-gray-500 fw-semibold fs-7'>Or with email</span>
-      </div> */}
-      {/* end::Separator */}
 
       {formik.status ? (
         <div className='mb-lg-15 alert alert-danger'>
