@@ -24,8 +24,8 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'admin@demo.com',
-  password: 'demo',
+  email: '',
+  password: '',
 }
 
 /*
@@ -50,7 +50,7 @@ export function Login() {
         const response = await handleLogin(values.email, values.password);
        
   
-        if ('message' in response && response.message === 'success') {
+        if ('token' in response && response.token) {
           const {data: auth} = await login('admin@demo.com', 'demo')
           saveAuth(auth)
           const {data: user} = await getUserByToken(auth.api_token)
@@ -88,7 +88,7 @@ export function Login() {
       
 
 
-      {formik.status ? (
+      {/* {formik.status ? (
         <div className='mb-lg-15 alert alert-danger'>
           <div className='alert-text font-weight-bold'>{formik.status}</div>
         </div>
@@ -99,7 +99,7 @@ export function Login() {
             continue.
           </div>
         </div>
-      )}
+      )} */}
 
       {/* begin::Form group */}
       <div className='fv-row mb-8'>
