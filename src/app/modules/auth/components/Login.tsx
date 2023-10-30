@@ -7,26 +7,26 @@ import {useFormik} from 'formik'
 import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
-import axios from "axios";
-import { handleRegister } from '../utils/handleAuth'
-import { handleLogin } from '../utils/handleAuth'
+import axios from 'axios'
+import {handleRegister} from '../utils/handleAuth'
+import {handleLogin} from '../utils/handleAuth'
 
-const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
-})
+// const loginSchema = Yup.object().shape({
+//   username: Yup.string()
 
-const initialValues = {
-  email: '',
-  password: '',
-}
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Email is required'),
+//   password: Yup.string()
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Password is required'),
+// })
+
+// const initialValues = {
+//   username: '',
+//   password: '',
+// }
 
 /*
   Formik+YUP+Typescript:
@@ -37,36 +37,40 @@ const initialValues = {
 export function Login() {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
- 
   const formik = useFormik({
-    initialValues,
-    validationSchema: loginSchema,
-    onSubmit: async (values, { setStatus, setSubmitting }) => {
-      setLoading(true);
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      username: Yup.string().required('Username is required'),
+      password: Yup.string().required('Password is required'),
+    }),
+    onSubmit: async (values, {setStatus, setSubmitting}) => {
+      setLoading(true)
       try {
-        const response = await handleLogin(values.email, values.password);
-       
-  
+        const response = await handleLogin(values.username, values.password)
+
         if ('token' in response && response.token) {
           const {data: auth} = await login('admin@demo.com', 'demo')
           saveAuth(auth)
           const {data: user} = await getUserByToken(auth.api_token)
           setCurrentUser(user)
-          console.log('response', response);  
+          console.log('response', response)
         } else {
           // Giriş başarısız olursa
           // saveAuth(undefined);
-          console.log('response', response);
-          setStatus('The login details are incorrect');
+          console.log('response', response)
+          setStatus('The login details are incorrect')
         }
       } catch (error) {
-        console.error(error); // Hata durumunda hatayı konsola yazdır
+        console.error(error) // Hata durumunda hatayı konsola yazdır
       } finally {
-        setSubmitting(false); // Formun tekrar gönderilebilir olmasını sağla
-        setLoading(false); // Yüklenme durumunu güncelle
+        setSubmitting(false) // Formun tekrar gönderilebilir olmasını sağla
+        setLoading(false) // Yüklenme durumunu güncelle
       }
     },
   })
@@ -81,46 +85,29 @@ export function Login() {
       {/* begin::Heading */}
       <div className='text-center mb-11'>
         <h1 className='text-dark fw-bolder mb-3'>Sign In</h1>
-        
       </div>
       {/* begin::Heading */}
 
-      
-
-
-      {/* {formik.status ? (
-        <div className='mb-lg-15 alert alert-danger'>
-          <div className='alert-text font-weight-bold'>{formik.status}</div>
-        </div>
-      ) : (
-        <div className='mb-10 bg-light-info p-8 rounded'>
-          <div className='text-info'>
-            Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to
-            continue.
-          </div>
-        </div>
-      )} */}
-
       {/* begin::Form group */}
       <div className='fv-row mb-8'>
-        <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
+        <label className='form-label fs-6 fw-bolder text-dark'>Username</label>
         <input
-          placeholder='Email'
-          {...formik.getFieldProps('email')}
+          placeholder='Username'
+          {...formik.getFieldProps('username')} // Değişiklik yapıldı
           className={clsx(
             'form-control bg-transparent',
-            {'is-invalid': formik.touched.email && formik.errors.email},
+            {'is-invalid': formik.touched.username && formik.errors.username},
             {
-              'is-valid': formik.touched.email && !formik.errors.email,
+              'is-valid': formik.touched.username && !formik.errors.username,
             }
           )}
-          type='email'
-          name='email'
+          type='text' // Değişiklik yapıldı
+          name='username' // Değişiklik yapıldı
           autoComplete='off'
         />
-        {formik.touched.email && formik.errors.email && (
+        {formik.touched.username && formik.errors.username && (
           <div className='fv-plugins-message-container'>
-            <span role='alert'>{formik.errors.email}</span>
+            <span role='alert'>{formik.errors.username}</span>
           </div>
         )}
       </div>
@@ -171,7 +158,7 @@ export function Login() {
           type='submit'
           id='kt_sign_in_submit'
           className='btn btn-primary'
-          disabled={formik.isSubmitting || !formik.isValid}
+          // disabled={formik.isSubmitting || !formik.isValid}
         >
           {!loading && <span className='indicator-label'>Continue</span>}
           {loading && (

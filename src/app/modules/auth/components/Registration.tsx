@@ -11,61 +11,81 @@ import {PasswordMeterComponent} from '../../../../_metronic/assets/ts/components
 import {useAuth} from '../core/Auth'
 import {handleRegister} from '../utils/handleAuth'
 
-const initialValues = {
-  firstname: '',
-  lastname: '',
-  email: '',
-  password: '',
-  changepassword: '',
-  acceptTerms: false,
-}
+// const initialValues = {
+//   firstname: '',
+//   lastname: '',
+//   email: '',
+//   password: '',
+//   changepassword: '',
+//   acceptTerms: false,
+// }
 
-const registrationSchema = Yup.object().shape({
-  firstname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('First name is required'),
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  lastname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Last name is required'),
-  password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
-  changepassword: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password confirmation is required')
-    .oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
-  acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
-})
+// const registrationSchema = Yup.object().shape({
+//   firstname: Yup.string()
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('First name is required'),
+//   email: Yup.string()
+//     .email('Wrong email format')
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Email is required'),
+//   lastname: Yup.string()
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Last name is required'),
+//   password: Yup.string()
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Password is required'),
+//   changepassword: Yup.string()
+//     .min(3, 'Minimum 3 symbols')
+//     .max(50, 'Maximum 50 symbols')
+//     .required('Password confirmation is required')
+//     .oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
+//   acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
+// })
 
 export function Registration() {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
   const formik = useFormik({
-    initialValues,
-    validationSchema: registrationSchema,
+    initialValues: {
+      firstname: '',
+      lastname: '',
+      username: '',
+      password: '',
+      passwordConfirm: '',
+    },
+    validationSchema: Yup.object({
+      firstname: Yup.string().required('First name is required'),
+      lastname: Yup.string().required('Last name is required'),
+      username: Yup.string().required('Username is required'),
+      password: Yup.string().required('Password is required'),
+      passwordConfirm: Yup.string().required('Password confirmation is required'),
+    }),
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       try {
-        const {data: auth} = await handleRegister(
+        const data = await handleRegister(
           values.firstname,
           values.lastname,
-          values.email,
+          values.username,
           values.password,
-          values.changepassword
+          values.passwordConfirm
         )
-        
-        saveAuth(auth)
-        const {data: user} = await getUserByToken(auth.api_token)
-        setCurrentUser(user)
+        console.log(data)
+        setStatus('Registration Successful')
+        // const {data: auth} = await register(
+        //   values.firstname,
+        //   values.lastname,
+        //   values.email,
+
+        // )
+
+        // saveAuth(auth)
+        // const {data: user} = await getUserByToken(auth.api_token)
+        // setCurrentUser(user)
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
@@ -87,6 +107,7 @@ export function Registration() {
       id='kt_login_signup_form'
       onSubmit={formik.handleSubmit}
     >
+     
       {/* begin::Heading */}
       <div className='text-center mb-11'>
         {/* begin::Title */}
@@ -142,11 +163,11 @@ export function Registration() {
           autoComplete='off'
           {...formik.getFieldProps('username')}
           className={clsx(
-            'form-control bg-transparent'
-            // {'is-invalid': formik.touched.email && formik.errors.email},
-            // {
-            //   'is-valid': formik.touched.email && !formik.errors.email,
-            // }
+            'form-control bg-transparent',
+            {'is-invalid': formik.touched.username && formik.errors.username},
+            {
+              'is-valid': formik.touched.username && !formik.errors.username,
+            }
           )}
         />
       </div>
@@ -205,21 +226,21 @@ export function Registration() {
           type='password'
           placeholder='Password confirmation'
           autoComplete='off'
-          {...formik.getFieldProps('changepassword')}
+          {...formik.getFieldProps('passwordConfirm')}
           className={clsx(
             'form-control bg-transparent',
             {
-              'is-invalid': formik.touched.changepassword && formik.errors.changepassword,
+              'is-invalid': formik.touched.passwordConfirm && formik.errors.passwordConfirm,
             },
             {
-              'is-valid': formik.touched.changepassword && !formik.errors.changepassword,
+              'is-valid': formik.touched.passwordConfirm && !formik.errors.passwordConfirm,
             }
           )}
         />
-        {formik.touched.changepassword && formik.errors.changepassword && (
+        {formik.touched.passwordConfirm && formik.errors.passwordConfirm && (
           <div className='fv-plugins-message-container'>
             <div className='fv-help-block'>
-              <span role='alert'>{formik.errors.changepassword}</span>
+              <span role='alert'>{formik.errors.passwordConfirm}</span>
             </div>
           </div>
         )}
@@ -227,15 +248,7 @@ export function Registration() {
       {/* end::Form group */}
 
       {/* begin::Form group */}
-      <div className='fv-row mb-8'>
-        {formik.touched.acceptTerms && formik.errors.acceptTerms && (
-          <div className='fv-plugins-message-container'>
-            <div className='fv-help-block'>
-              <span role='alert'>{formik.errors.acceptTerms}</span>
-            </div>
-          </div>
-        )}
-      </div>
+
       {/* end::Form group */}
 
       {/* begin::Form group */}
