@@ -19,7 +19,7 @@ const UsersList: FC<Props> = ({users = undefined}) => {
               overlay={<Tooltip id='tooltip-user-name'>{user.name}</Tooltip>}
             >
               <div className='symbol symbol-35px symbol-circle'>
-                {user.avatar && <img src={toAbsoluteUrl(user.avatar)} alt='Pic' />}
+                {user?.avatar && user?.avatar.charAt(0)=='/' ? <img src={toAbsoluteUrl(user.avatar)} alt='Pic' /> : <img src={(user.avatar)} alt='card2'/>}
                 {user.initials && (
                   <span className='symbol-label bg-primary text-inverse-primary fw-bolder'>
                     {user.initials}
