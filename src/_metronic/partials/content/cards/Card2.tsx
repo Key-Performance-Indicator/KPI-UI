@@ -79,7 +79,7 @@ const Card2: FC<Props> = ({
         <OverlayTrigger
           key={title}
           placement='top'
-          overlay={<Tooltip id='tooltip-user-name'>{title} Sprint İlerlemesi</Tooltip>}
+          overlay={<Tooltip id='tooltip-user-name'>{title} Sprint İlerlemesi - %{progress} </Tooltip>}
         >
             <div
               className={`bg-${statusColor} rounded h-4px`}
