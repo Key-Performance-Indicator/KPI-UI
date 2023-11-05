@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import {IconUserModel} from '../../../../app/modules/profile/ProfileModels'
 import {UsersList} from '../../../../app/modules/profile/components/UsersList'
 import {toAbsoluteUrl} from '../../../helpers'
+import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger'
+import { Tooltip } from 'react-bootstrap'
 
 type Props = {
   icon: string
@@ -31,14 +33,17 @@ const Card2: FC<Props> = ({
   users = undefined,
 }) => {
   return (
-    <Link
-      to='/crafted/pages/profile/overview'
+    // <Link
+    //   to='/crafted/pages/profile/overview'
+    //   className='card border border-2 border-gray-300 border-hover'
+    // >
+      <div
       className='card border border-2 border-gray-300 border-hover'
     >
       <div className='card-header border-0 pt-9'>
         <div className='card-title m-0'>
           <div className='symbol symbol-50px w-50px bg-light'>
-            <img src={toAbsoluteUrl(icon)} alt='card2' className='p-3' />
+            {icon.charAt(0) == '/' ? <img src={toAbsoluteUrl(icon)} alt='card2' className='p-3' /> : <img src={(icon)} alt='card2' className='p-3' />}
           </div>
         </div>
 
@@ -57,30 +62,38 @@ const Card2: FC<Props> = ({
         <div className='d-flex flex-wrap mb-5'>
           <div className='border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3'>
             <div className='fs-6 text-gray-800 fw-bolder'>{date}</div>
-            <div className='fw-bold text-gray-400'>Due Date</div>
+            <div className='fw-bold text-gray-400'>Done Sayısı</div>
           </div>
 
           <div className='border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3'>
             <div className='fs-6 text-gray-800 fw-bolder'>{budget}</div>
-            <div className='fw-bold text-gray-400'>Budget</div>
+            <div className='fw-bold text-gray-400'>Bug Sayısı</div>
           </div>
         </div>
 
         <div
           className='h-4px w-100 bg-light mb-5'
           data-bs-toggle='tooltip'
-          title='This project completed'
+          // title='This project completed'
+        >            
+        <OverlayTrigger
+          key={title}
+          placement='top'
+          overlay={<Tooltip id='tooltip-user-name'>{title} Sprint İlerlemesi - %{progress} </Tooltip>}
         >
-          <div
-            className={`bg-${statusColor} rounded h-4px`}
-            role='progressbar'
-            style={{width: `${progress}%`}}
-          ></div>
+            <div
+              className={`bg-${statusColor} rounded h-4px`}
+              role='progressbar'
+              style={{width: `${progress}%`}}
+            >
+            </div>
+          </OverlayTrigger>
+
         </div>
 
         <UsersList users={users} />
       </div>
-    </Link>
+    </div>
   )
 }
 

@@ -10,6 +10,7 @@ import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 
 import {UserPerformance} from '../pages/graphs/UserPerformance'
 import { TotalContribution } from '../pages/graphs/TotalContribution'
+import { NewDashboardWrapper } from '../pages/dashboard/NewDashboardWrapper'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -26,6 +27,7 @@ const PrivateRoutes = () => {
         <Route path='auth/*' element={<Navigate to='/dashboard' />} />
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
+        <Route path='newDashboard' element={<NewDashboardWrapper />} />
         
         <Route path='userPerformance' element={<UserPerformance />} />
         <Route path='totalContribution' element={<TotalContribution />} />
