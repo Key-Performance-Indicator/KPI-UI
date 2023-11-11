@@ -11,6 +11,9 @@ import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import {UserPerformance} from '../pages/graphs/UserPerformance'
 import { TotalContribution } from '../pages/graphs/TotalContribution'
 import { NewDashboardWrapper } from '../pages/dashboard/NewDashboardWrapper'
+import { AddUserWrapper } from '../pages/userSettings/AddUser'
+import { UserDetailsWrapper } from '../pages/userSettings/UserDetails'
+import { AddRolesWrapper } from '../pages/userSettings/AddRoles'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -28,6 +31,10 @@ const PrivateRoutes = () => {
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='newDashboard' element={<NewDashboardWrapper />} />
+
+        <Route path='addUser' element={<AddUserWrapper />} />
+        <Route path='addRoles' element={<AddRolesWrapper />} />
+        <Route path='userDetails' element={<UserDetailsWrapper />} />
         
         <Route path='userPerformance' element={<UserPerformance />} />
         <Route path='totalContribution' element={<TotalContribution />} />

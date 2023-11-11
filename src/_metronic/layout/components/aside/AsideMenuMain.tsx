@@ -23,6 +23,37 @@ export function AsideMenuMain() {
         bsTitle={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         className='py-2'
       />
+
+      <AsideMenuItemWithSubMain
+        to='/crafted/pages'
+        title='Kullanici Islemleri'
+        fontIcon='bi-person-rolodex'
+        bsTitle='Kullanici Islemleri'
+      >
+          <AsideMenuItem
+            to='/addUser'
+            title='Kullanici Ekleme'
+            bsTitle='Kullanici Ekleme'
+            hasBullet={false}
+            fontIcon='bi-person-fill-add'
+          />
+          <AsideMenuItem
+            to='/addRoles'
+            title='Rol Atama'
+            bsTitle='Rol Atama'
+            hasBullet={false}
+            fontIcon='bi-person-badge'
+          />
+          <AsideMenuItem
+            to='/userDetails'
+            title='Kullanici Detaylari'
+            bsTitle='Kullanici Detaylari'
+            hasBullet={false}
+            fontIcon='bi-person-vcard'
+          />
+        </AsideMenuItemWithSubMain>
+
+
       <AsideMenuItemWithSubMain
         to='/crafted/pages'
         title='Projeler'
@@ -332,6 +363,9 @@ export function AsideMenuMain() {
         bsTitle={intl.formatMessage({id: 'Toplam Katkı'})}
         className='py-2'
       />
+
+
+      
 
     </>
   )
