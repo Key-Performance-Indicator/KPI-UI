@@ -24,7 +24,7 @@ const Step3: FC = () => {
         <div className='text-danger mt-2'>
           <ErrorMessage name='businessName' />
         </div>
-      </div>
+      </div> 
 
       <div className='fv-row mb-10'>
         <label className='d-flex align-items-center form-label'>
