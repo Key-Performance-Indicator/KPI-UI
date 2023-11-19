@@ -102,7 +102,7 @@ export function Overview() {
                   Your payment was declined. To start using tools, please
                   <Link className='fw-bolder' to='/crafted/account/settings'>
                     {' '}
-                    Add Payment Method
+                    Add Payment Method 
                   </Link>
                   .
                 </div>

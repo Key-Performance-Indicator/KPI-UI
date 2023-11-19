@@ -185,7 +185,7 @@ const TotalContribution = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'totalContribution'})}</PageTitle>
+    <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD' })}</PageTitle>
       <br></br>
       <br></br>
       <TotalContributionPage />

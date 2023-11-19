@@ -23,13 +23,6 @@ export function AsideMenuMain() {
         bsTitle={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         className='py-2'
       />
-       <AsideMenuItem
-        to='/userfiles'
-        title='Dosya Yükleme'
-        fontIcon='bi-file-text'
-        bsTitle='Crafted'
-        className='py-2'
-      />
       <AsideMenuItemWithSubMain
         to='/crafted/pages'
         title='Projeler'
@@ -339,6 +332,9 @@ export function AsideMenuMain() {
         bsTitle={intl.formatMessage({id: 'Toplam Katkı'})}
         className='py-2'
       />
+
+
+      
 
     </>
   )
