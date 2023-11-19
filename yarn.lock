@@ -1639,11 +1639,7 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-<<<<<<< HEAD
-"@popperjs/core@^2.11.5", "@popperjs/core@^2.9.2", "@popperjs/core@2.11.6":
-=======
 "@popperjs/core@2.11.6", "@popperjs/core@^2.11.5", "@popperjs/core@^2.9.2":
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
   version "2.11.6"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
@@ -2241,11 +2237,7 @@
   dependencies:
     "@types/react" "*"
 
-<<<<<<< HEAD
-"@types/react@*", "@types/react@>=16.9.11", "@types/react@16 || 17 || 18", "@types/react@18.0.6":
-=======
 "@types/react@*", "@types/react@16 || 17 || 18", "@types/react@18.0.6", "@types/react@>=16.9.11":
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
   version "18.0.6"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.0.6.tgz"
   integrity sha512-bPqwzJRzKtfI0mVYr5R+1o9BOE8UEXefwc1LwcBtfnaAn6OoqMhLa/91VA8aeWfDPJt1kHvYKI8RHcQybZLHHA==
@@ -2688,16 +2680,7 @@ acorn-walk@^7.0.0, acorn-walk@^7.1.1:
   resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-7.2.0.tgz"
   integrity sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==
 
-<<<<<<< HEAD
-acorn@^7.0.0:
-  version "7.4.1"
-  resolved "https://registry.npmjs.org/acorn/-/acorn-7.4.1.tgz"
-  integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
-
-acorn@^7.1.1:
-=======
 acorn@^7.0.0, acorn@^7.1.1:
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
   version "7.4.1"
   resolved "https://registry.npmjs.org/acorn/-/acorn-7.4.1.tgz"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
@@ -2764,31 +2747,7 @@ ajv@^6.10.0, ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-<<<<<<< HEAD
-ajv@^8.0.0:
-  version "8.11.2"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-8.11.2.tgz"
-  integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-    uri-js "^4.2.2"
-
-ajv@^8.6.0:
-  version "8.11.2"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-8.11.2.tgz"
-  integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-    uri-js "^4.2.2"
-
-ajv@^8.8.0:
-=======
 ajv@^8.0.0, ajv@^8.6.0, ajv@^8.8.0:
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
   version "8.11.2"
   resolved "https://registry.npmjs.org/ajv/-/ajv-8.11.2.tgz"
   integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
@@ -3250,10 +3209,10 @@ bootstrap-icons@^1.5.0:
   resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.10.2.tgz"
   integrity sha512-PTPYadRn1AMGr+QTSxe4ZCc+Wzv9DGZxbi3lNse/dajqV31n2/wl/7NX78ZpkvFgRNmH4ogdIQPQmxAfhEV6nA==
 
-bootstrap@5.3.0-alpha1:
-  version "5.3.0-alpha1"
-  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.0-alpha1.tgz"
-  integrity sha512-ABZpKK4ObS3kKlIqH+ZVDqoy5t/bhFG0oHTAzByUdon7YIom0lpCeTqRniDzJmbtcWkNe800VVPBiJgxSYTYew==
+bootstrap@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.2.tgz#97226583f27aae93b2b28ab23f4c114757ff16ae"
+  integrity sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -8333,8 +8292,6 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-<<<<<<< HEAD
-=======
 react-transition-group@^4.4.2:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -8345,7 +8302,6 @@ react-transition-group@^4.4.2:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
 react@18.0.0:
   version "18.0.0"
   resolved "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
@@ -8696,8 +8652,6 @@ sass-loader@13.0.2:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-<<<<<<< HEAD
-=======
 sass-loader@^12.3.0:
   version "12.6.0"
   resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-12.6.0.tgz"
@@ -8706,7 +8660,6 @@ sass-loader@^12.3.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
 sass@1.50.1:
   version "1.50.1"
   resolved "https://registry.npmjs.org/sass/-/sass-1.50.1.tgz"
@@ -9914,11 +9867,7 @@ webpack-sources@^3.2.3:
   resolved "https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.3.tgz"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-<<<<<<< HEAD
-webpack@^5.64.4, webpack@5.74.0:
-=======
 webpack@5.74.0, webpack@^5.64.4:
->>>>>>> 0676fd853e0544d706d82198c52971a2ddd5aba7
   version "5.74.0"
   resolved "https://registry.npmjs.org/webpack/-/webpack-5.74.0.tgz"
   integrity sha512-A2InDwnhhGN4LYctJj6M1JEaGL7Luj6LOmyBHjcI8529cm5p6VXiTIW2sn6ffvEAKmveLzvu4jrihwXtPojlAA==

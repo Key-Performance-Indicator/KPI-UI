@@ -176,7 +176,7 @@ const UserPerformance = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'userPerformance'})}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
       <br></br>
       <br></br>
       <DashboardPage />
